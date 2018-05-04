@@ -10,7 +10,7 @@ module.exports = function(app) {
     app.post("/api/friends", function(req, res) {
         console.log(req.body);
 
-        let totalScore = 0;
+        let totalScore = 99999;
         let userScore = req.body.scores;
         //matched name for most compatible friend
         let userName = "";
@@ -24,7 +24,7 @@ module.exports = function(app) {
                 difference += Math.abs(currentFriend.scores[elem] - userScore);
             });
 
-            if(difference > totalScore ) {
+            if(difference < totalScore ) {
                 totalScore = difference;
                 userName = currentFriend.name;
                 userImg = currentFriend.photo;

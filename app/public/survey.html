@@ -97,6 +97,12 @@
                 height: 100%;
                 width: 100%;
             }
+            
+            img {
+                width: 200px;
+                height: 200px;
+                border-radius: 70px;
+            }
 
         </style>
     </head>
@@ -110,9 +116,8 @@
     <div id="matchModal"> 
         <div class="modalcontent">
             <h1 class="text-center">You matched with <span id="userName"></span><hr><br></h1>
-            <div id="userImageSect">
-            </div>
-            <button type="button" class="btn btn-primary" id="newGame">Close</button>
+            <img src="" id="userPhoto">
+            <button type="button" class="btn btn-primary" id="closeMod">Close</button>
         </div>
     </div>
 
@@ -277,7 +282,14 @@
                     $("#nameInput").val("");
                     $("#photoURL").val("");
 
-                    $.post("/api/friends", userData);
+                    $.post("/api/friends", userData)
+                    .done(data => {
+                        console.log(data);
+                        // $("#userName").html(data.userName);
+                        // $("#userPhoto").attr("src", data.matchedImage);
+
+                        $("#matchModal").show();
+                    });
                 });
             });
         </script>
