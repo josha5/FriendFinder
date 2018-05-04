@@ -1,0 +1,59 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a, button {
+    cursor: pointer !important;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffcc;
+    width: 90% !important;
+    height: 20%;
+    box-shadow: 0 6px  #ffffb3;
+    border: 1px solid #ffff66;
+}
+
+#surveyLink {
+    text-align: right !important;
+}
+
+a {
+    text-decoration: none !important;
+    outline: none !important;
+    color: inherit;
+}
+
+.jumbotron {
+    width: 70%;
+    margin: auto;
+    background-color:    #c6ecc6;
+    box-shadow: 0 10px #79d279;
+    border: 0.35px solid black;
+}
+
+#surveyBG {
+    background-color: #eee;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;    
+}
+
+#questionContainer {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
