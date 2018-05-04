@@ -72,6 +72,33 @@
                 border: 1px solid black;
                 border-radius: 15px;
             }
+
+            .modalcontent {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #e6e6e6;
+                width: 80%;
+                height: 50%;
+                padding: 20px;
+                border: solid white;
+                border-width: 4px;
+                border-radius: 10px;
+            }
+
+            #matchModal {
+                position: fixed;
+                display: none;
+                font-family: Arial, Helvetica, sans-serif;
+                top: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 99999;
+                height: 100%;
+                width: 100%;
+            }
+
         </style>
     </head>
     <body id="surveyBG">
@@ -80,7 +107,17 @@
             <a href="/survey" id="surveyLink" class="mr-2">Github Repo</a>
             <a href="/api/friends" id="" class="mr-2">API friends list</a>
     </header>
-        <div class = "container">
+
+    <div id="matchModal"> 
+        <div class="modalcontent">
+            <h1 class="text-center">You matched with <span id="userName"></span><hr><br></h1>
+            <div id="userImageSect">
+            </div>
+            <button type="button" class="btn btn-primary" id="newGame">Close</button>
+        </div>
+    </div>
+
+    <div class = "container">
             <div class="row">
                 <h2 class = "mt-3">Survey Questions</h2>
                 <hr>
@@ -133,7 +170,7 @@
 
 
         <h3>Question 4</h3>
-        <h4>You rarely do something just out of sheer curiosity.</h4>
+        <h4>Sushi is better than pizza</h4>
         <select class="chosen-select" id="question4">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
@@ -145,7 +182,7 @@
 
 
         <h3>Question 5</h3>
-        <h4>People can rarely upset you.</h4>
+        <h4>You think it takes over 120 licks to get to the center of a tootsie pop.</h4>
         <select class="chosen-select" id="question5">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
@@ -157,7 +194,7 @@
 
 
         <h3>Question 6</h3>
-        <h4>It is often difficult for you to relate to other people’s feelings.</h4>
+        <h4>UCF is better than UF football (choose wisely)</h4>
         <select class="chosen-select" id="question6">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
@@ -169,7 +206,7 @@
 
 
         <h3>Question 7</h3>
-        <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+        <h4>You would rather spend time alone than out with friends.</h4>
         <select class="chosen-select" id="question7">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
@@ -180,7 +217,7 @@
         </select>
 
         <h3>Question 8</h3>
-        <h4>You rarely get carried away by fantasies and ideas.</h4>
+        <h4>The chicken came before the egg.</h4>
         <select class="chosen-select" id="question8">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
@@ -191,7 +228,7 @@
         </select>
 
         <h3>Question 9</h3>
-        <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
+        <h4>You would rather cook a meal than go out and buy one.</h4>
         <select class="chosen-select" id="question9">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
@@ -202,7 +239,7 @@
         </select>
 
         <h3>Question 10</h3>
-        <h4>You feel more energetic after spending time with a group of people.</h4>
+        <h4>You would rather go skydiving than scuba diving.</h4>
         <select class="chosen-select" id="question10">
         <option value=""></option>
         <option value="1">1 (Strongly Disagree)</option>
