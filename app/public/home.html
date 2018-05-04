@@ -6,7 +6,10 @@
         <title>Friend Finder</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script> 
         <style>
                 body {
                 font-family: Georgia, 'Times New Roman', Times, serif;
@@ -72,7 +75,7 @@
     <body>
         <header class="mx-auto">
             <h1 class="ml-3"><i class="fas fa-address-book fa-2x mr-5 mt-1"></i>Friend Finder</h1></i>
-            <a href="/survey" id="surveyLink" class="mr-2">Github Repo</a>
+            <a href="#" id="surveyLink" class="mr-2">Github Repo</a>
             <a href="/api/friends" id="" class="mr-2">API friends list</a>
         </header>
         <div class = "container">
@@ -81,12 +84,16 @@
                 <hr>
                 <h2>Take this survey and see who your most compatible match is!</h2>
                 <p>
-                    <a class="btn btn-info btn-lg mt-5">Take Survey</a>
+                    <a class="btn btn-info btn-lg mt-5" href="/survey">Take Survey</a>
                 </p>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+
+        <script>
+            $("document").ready(function() {
+                console.log("document ready");
+                
+            })
+        </script>
     </body>
 </html>
