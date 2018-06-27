@@ -3,42 +3,47 @@ const express = require("express");
 const friends = require("../data/friends.js");
 
 module.exports = function(app) {
-    app.get('/api/friends', function(req, res) {
-        res.json(friends);
-    });
 
-    app.post("/api/friends", function(req, res) {
-        console.log(req.body);
+	// List of all friend entries
+	app.get('/api/friends', function(req, res) {
+		res.json(friends);
+	});
 
-        let totalScore = 99999;
-        let userScore = req.body.scores;
-        //matched name for most compatible friend
-        let userName = "";
-        //matched Img for most compatible friend 
-        let userImg = "";
+	// Add new friend entry
+	app.post('/api/friends', function(req, res) {
 
-        friends.forEach(currentFriend => {
-            let difference = 0;
-
-            userScore.forEach(elem => {
-                difference += Math.abs(currentFriend.scores[elem] - userScore);
-            });
-
-            if(difference < totalScore ) {
-                totalScore = difference;
-                userName = currentFriend.name;
-                userImg = currentFriend.photo;
-                
-            }
-        });
-
-        friends.push(req.body); // Pushing user data;
-
-        res.json({status: "OK", 
-            matchedName: userName,
-            matchedImage: userImg
-        })
-    });
+		// User input object
+		let userInput = req.body;
+	
+		let userResponses = userInput.scores;
 
 
-}
+		// Match results for best friend
+		let matchName = '';
+		let matchImage = '';
+		let totalDifference = 10000; 
+
+		// Looping over all friends in the friends list
+		for (var i = 0; i < friends.length; i++) {
+
+			// getting differences for each friend
+			var diff = 0;
+			for (var j = 0; j < userResponses.length; j++) {
+				diff += Math.abs(friends[i].scores[j] - userResponses[j]);
+			}
+
+			// finding friend with the lowest amount of differences
+			if (diff < totalDifference) {
+	
+				totalDifference = diff;
+				matchName = friends[i].name;
+				matchImage = friends[i].photo;
+			}
+		}
+
+		// Add new user
+		friends.push(userInput);
+
+		res.json({status: 'OK', matchName: matchName, matchImage: matchImage});
+	});
+};

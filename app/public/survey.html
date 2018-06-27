@@ -117,7 +117,7 @@
         <div class="modalcontent">
             <h1 class="text-center">You matched with <span id="userName"></span><hr><br></h1>
             <img src="" id="userPhoto">
-            <button type="button" class="btn btn-primary" id="closeMod">Close</button>
+            <button type="button" class="btn btn-danger" id="closeMod">Close</button>
         </div>
     </div>
 
@@ -285,10 +285,14 @@
                     $.post("/api/friends", userData)
                     .done(data => {
                         console.log(data);
-                        // $("#userName").html(data.userName);
-                        // $("#userPhoto").attr("src", data.matchedImage);
+                        $("#userName").html(data.matchName);
+                        $("#userPhoto").attr("src", data.matchImage);
 
                         $("#matchModal").show();
+
+                        $("#closeMod").on("click", function() {
+                            $("#matchModal").hide();
+                        });
                     });
                 });
             });
