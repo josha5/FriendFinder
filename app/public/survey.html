@@ -79,7 +79,7 @@
                 transform: translate(-50%, -50%);
                 background: #e6e6e6;
                 width: 80%;
-                height: 50%;
+                height: 60%;
                 padding: 20px;
                 border: solid white;
                 border-width: 4px;
@@ -116,7 +116,7 @@
     <div id="matchModal"> 
         <div class="modalcontent">
             <h1 class="text-center">You matched with <span id="userName"></span><hr><br></h1>
-            <img src="" id="userPhoto">
+            <img src="" id="userPhoto"> <br><br>
             <button type="button" class="btn btn-danger" id="closeMod">Close</button>
         </div>
     </div>
@@ -253,48 +253,63 @@
         <option value="5">5 (Strongly Agree)</option>
         </select>
 
-
+        <br><br>
         <button type="submit" class="btn btn-primary mb-4" id="submitBtn">Submit</button>
     </div>
         <script type="text/javascript">
             $("document").ready(function() {
                 console.log("Document ready");
+
+
+
                 $("#submitBtn").on("click", function() {
-                    event.preventDefault();
-                    const userData = {
-                        "name": $("#nameInput").val().trim(),
-                        "photo": $("#photoURL").val().trim(),
-                        "scores": [
-                            $("#question1").val(),
-                            $("#question2").val(),
-                            $("#question3").val(),
-                            $("#question4").val(),
-                            $("#question5").val(),
-                            $("#question6").val(),
-                            $("#question7").val(),
-                            $("#question8").val(),
-                            $("#question9").val(),
-                            $("#question10").val()
-                        ]
-                    }
 
-                    
-                    $("#nameInput").val("");
-                    $("#photoURL").val("");
+                    // looping through all select answer to check if blank answers
+                    $(".chosen-select").each(function() {
+                        if($(this).val() === "") {
+                            alert("Please answer all questions before submitting");
 
-                    $.post("/api/friends", userData)
-                    .done(data => {
-                        console.log(data);
-                        $("#userName").html(data.matchName);
-                        $("#userPhoto").attr("src", data.matchImage);
+                            // stopping loop after finding empty answer
+                            return false;
+                        } else {
+                
+                            event.preventDefault();
+                            const userData = {
+                                "name": $("#nameInput").val().trim(),
+                                "photo": $("#photoURL").val().trim(),
+                                "scores": [
+                                    $("#question1").val(),
+                                    $("#question2").val(),
+                                    $("#question3").val(),
+                                    $("#question4").val(),
+                                    $("#question5").val(),
+                                    $("#question6").val(),
+                                    $("#question7").val(),
+                                    $("#question8").val(),
+                                    $("#question9").val(),
+                                    $("#question10").val()
+                                ]
+                            }
 
-                        $("#matchModal").show();
+                            
+                            $("#nameInput").val("");
+                            $("#photoURL").val("");
 
-                        $("#closeMod").on("click", function() {
-                            $("#matchModal").hide();
-                        });
+                            $.post("/api/friends", userData)
+                            .done(data => {
+                                console.log(data);
+                                $("#userName").html(data.matchName);
+                                $("#userPhoto").attr("src", data.matchImage);
+
+                                $("#matchModal").show();
+
+                                $("#closeMod").on("click", function() {
+                                    $("#matchModal").hide();
+                                });
+                            });
+                        }
                     });
-                });
+                })
             });
         </script>
     </body>
