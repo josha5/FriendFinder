@@ -315,10 +315,11 @@
                                     $("#question10").val()
                                 ]
                             }
-
                             
+                            // clearing all fields after survey submit
                             $("#nameInput").val("");
                             $("#photoURL").val("");
+                            $(".chosen-select option:selected").prop("selected", false);
 
                             $.post("/api/friends", userData)
                             .done(data => {
