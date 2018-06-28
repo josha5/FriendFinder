@@ -11,8 +11,35 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script> 
         <style>
-                body {
+            html, body {
                 font-family: Georgia, 'Times New Roman', Times, serif;
+                height: 100%;
+                box-sizing: border-box;
+            }
+            
+            *,
+            *:before,
+            *:after {
+            box-sizing: inherit;
+            }
+
+            body {
+                position: relative;
+                margin: 0;
+                padding-bottom: 6rem;
+                min-height: 100%;
+                font-family: "Helvetica Neue", Arial, sans-serif;  
+                background-color: #ffffe6;
+            }
+            
+            .footer {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                padding: 1rem;
+                background-color: #cccc00;
+                box-shadow: 0 3px 6px #999, 0 3px 6px #999;
             }
 
             a, button {
@@ -70,6 +97,7 @@
                 border: 1px solid black;
                 border-radius: 15px;
             }
+
         </style>
     </head>
     <body>
@@ -87,6 +115,9 @@
                     <a class="btn btn-info btn-lg mt-5" href="/survey">Take Survey</a>
                 </p>
             </div>
+        </div>
+        <div class="footer">
+            <p class="text-center"><b>Created by Joshua Arnett</b></p>
         </div>
 
         <script>
