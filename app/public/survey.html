@@ -12,8 +12,35 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">  
         <style>
-             body {
+            html, body {
                 font-family: Georgia, 'Times New Roman', Times, serif;
+                height: 100%;
+                box-sizing: border-box;
+            }
+            
+            *,
+            *:before,
+            *:after {
+            box-sizing: inherit;
+            }
+
+            body {
+                position: relative;
+                margin: 0;
+                padding-bottom: 6rem;
+                min-height: 100%;
+                font-family: "Helvetica Neue", Arial, sans-serif;  
+                background-color: #ffffe6;
+            }
+            
+            .footer {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                padding: 1rem;
+                background-color: #cccc00;
+                box-shadow: 0 3px 6px #999, 0 3px 6px #999;
             }
 
             a, button {
@@ -32,7 +59,7 @@
                 background-color: #ffffcc;
                 width: 90% !important;
                 height: 20%;
-                box-shadow: 0 6px  #ffffb3;
+                box-shadow: 0 3px 6px #999, 0 3px 6px #999;
                 border: 1px solid #ffff66;
             }
 
@@ -52,10 +79,6 @@
                 background-color:    #c6ecc6;
                 box-shadow: 0 10px #79d279;
                 border: 0.35px solid black;
-            }
-
-            #surveyBG {
-                background-color: #eee;
             }
 
             form {
@@ -109,8 +132,9 @@
     <body id="surveyBG">
     <header class="mx-auto">
             <h1 class="ml-3"><i class="fas fa-address-book fa-2x mr-5 mt-1"></i>Friend Finder</h1></i>
-            <a href="/survey" id="surveyLink" class="mr-2">Github Repo</a>
-            <a href="/api/friends" id="" class="mr-2">API friends list</a>
+            <a href="/" id="homeBtn" class="mr-2"><b>Home</b></a>
+            <a href="/survey" id="surveyLink" class="mr-2"><b>Github Repo</b></a>
+            <a href="/api/friends" id="" class="mr-2"><b>API friends list</b></a>
     </header>
 
     <div id="matchModal"> 
@@ -137,124 +161,125 @@
                     <input type="text" class="form-control" id="photoURL" placeholder="Photo URL...">
                 </div>
             </form> 
-    <div id="questionContainer" class="mt-4 mb-5">        
-        <h3 class="mt-4">Question 1</h3>
-        <h4>Does pineapple go on pizza?</h4>
-        <select class="chosen-select" id="question1">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
+        <div id="questionContainer" class="mt-4 mb-5">        
+            <h3 class="mt-4">Question 1</h3>
+            <h4>Does pineapple go on pizza?</h4>
+            <select class="chosen-select" id="question1">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-        <h3>Question 2</h3>
-        <h4>Would prefer to spend time along than out with friends.</h4>
-        <select class="chosen-select" id="question2">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
-
-
-        <h3>Question 3</h3>
-        <h4>You easily succumb to peer pressure/</h4>
-        <select class="chosen-select" id="question3">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
+            <h3>Question 2</h3>
+            <h4>Would prefer to spend time along than out with friends.</h4>
+            <select class="chosen-select" id="question2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
 
 
-        <h3>Question 4</h3>
-        <h4>Sushi is better than pizza</h4>
-        <select class="chosen-select" id="question4">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
+            <h3>Question 3</h3>
+            <h4>You easily succumb to peer pressure/</h4>
+            <select class="chosen-select" id="question3">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
 
 
-        <h3>Question 5</h3>
-        <h4>You think it takes over 120 licks to get to the center of a tootsie pop.</h4>
-        <select class="chosen-select" id="question5">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
+            <h3>Question 4</h3>
+            <h4>Sushi is better than pizza</h4>
+            <select class="chosen-select" id="question4">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
 
 
-        <h3>Question 6</h3>
-        <h4>UCF is better than UF football (choose wisely)</h4>
-        <select class="chosen-select" id="question6">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
+            <h3>Question 5</h3>
+            <h4>You think it takes over 120 licks to get to the center of a tootsie pop.</h4>
+            <select class="chosen-select" id="question5">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
 
 
-        <h3>Question 7</h3>
-        <h4>You would rather spend time alone than out with friends.</h4>
-        <select class="chosen-select" id="question7">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
+            <h3>Question 6</h3>
+            <h4>UCF is better than UF football (choose wisely)</h4>
+            <select class="chosen-select" id="question6">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-        <h3>Question 8</h3>
-        <h4>The chicken came before the egg.</h4>
-        <select class="chosen-select" id="question8">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
 
-        <h3>Question 9</h3>
-        <h4>You would rather cook a meal than go out and buy one.</h4>
-        <select class="chosen-select" id="question9">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
+            <h3>Question 7</h3>
+            <h4>You would rather spend time alone than out with friends.</h4>
+            <select class="chosen-select" id="question7">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-        <h3>Question 10</h3>
-        <h4>You would rather go skydiving than scuba diving.</h4>
-        <select class="chosen-select" id="question10">
-        <option value=""></option>
-        <option value="1">1 (Strongly Disagree)</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 (Strongly Agree)</option>
-        </select>
+            <h3>Question 8</h3>
+            <h4>The chicken came before the egg.</h4>
+            <select class="chosen-select" id="question8">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-        <br><br>
-        <button type="submit" class="btn btn-primary mb-4" id="submitBtn">Submit</button>
+            <h3>Question 9</h3>
+            <h4>You would rather cook a meal than go out and buy one.</h4>
+            <select class="chosen-select" id="question9">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+            <h3>Question 10</h3>
+            <h4>You would rather go skydiving than scuba diving.</h4>
+            <select class="chosen-select" id="question10">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+            <br><br>
+            <button type="submit" class="btn btn-primary mb-4" id="submitBtn">Submit</button>
+        </div>
     </div>
         <script type="text/javascript">
             $("document").ready(function() {
